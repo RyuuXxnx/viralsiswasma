@@ -1,2 +1,0 @@
-# Ryuu
-Bot wa
