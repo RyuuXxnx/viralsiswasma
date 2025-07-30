@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Do Not Click</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+
+    #scare {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: flash 0.15s infinite alternate;
+    }
+
+    #scare img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    @keyframes flash {
+      from { filter: brightness(1); }
+      to { filter: brightness(2); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Tunggu sebentar... sedang memuat data</h1>
+
+  <div id="scare">
+    <img src="https://i.ibb.co/TKMXL6G/scary-face.jpg" alt="Jumpscare" />
+  </div>
+
+  <audio id="scream" src="https://www.myinstants.com/media/sounds/scream.mp3"></audio>
+
+  <script>
+    // Delay 6 detik lalu tampilkan jumpscare
+    setTimeout(() => {
+      const scareDiv = document.getElementById("scare");
+      const screamAudio = document.getElementById("scream");
+
+      scareDiv.style.display = "flex";
+      screamAudio.volume = 1; // Volume maksimal (1 = 100%)
+      screamAudio.play();
+    }, 6000);
+  </script>
+</body>
+</html>
